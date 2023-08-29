@@ -110,6 +110,18 @@ define Device/qihoo_v6
 endef
 TARGET_DEVICES += qihoo_v6
 
+define Device/scg5000
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS := qcom-ipq6010-scg5000
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	DEVICE_TITLE := SCG5000
+	DEVICE_PACKAGES := ath11k-wifi-qihoo-v6 kmod-usb3 kmod-usb-phy-msm
+endef
+TARGET_DEVICES += scg5000
+
 define Device/xiaomi_rm1800
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
