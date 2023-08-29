@@ -31,6 +31,11 @@
 	qcom,msm-id = <0x192 0x0>;
 
 	aliases {
+		led-boot = &led_power;
+		led-failsafe = &led_power;
+		led-running = &led_power;
+		led-upgrade = &led_power;
+		serial0 = &blsp1_uart3;
 		ethernet0 = "/soc/dp5";
 		ethernet1 = "/soc/dp4";
 		ethernet2 = "/soc/dp3";
@@ -65,14 +70,15 @@
 		};
 
 		ess-switch@3a000000 {
-			switch_cpu_bmp = <0x1>;  /* cpu port bitmap */
-			switch_lan_bmp = <0xe>; /* lan port bitmap */
-			switch_wan_bmp = <0x10>; /* wan port bitmap */
-			switch_inner_bmp = <0xc0>; /*inner port bitmap*/
-			switch_mac_mode = <0x0>; /* mac mode for uniphy 0*/
-			switch_mac_mode1 = <0xff>; /* mac mode for uniphy 1*/
-			switch_mac_mode2 = <0xff>; /* mac mode for uniphy 2*/
-
+			switch_cpu_bmp = <0x01>;
+			switch_lan_bmp = <0x1e>;
+			switch_wan_bmp = <0x20>;
+			switch_inner_bmp = <0xc0>;
+			switch_mac_mode = <0x00>;
+			switch_mac_mode1 = <0xff>;
+			switch_mac_mode2 = <0xff>;
+			bm_tick_mode = <0x00>;
+			tm_tick_mode = <0x00>;
 			qcom,port_phyinfo {
 				port@0 {
 					port_id = <1>;
@@ -101,7 +107,7 @@
 			device_type = "network";
 			compatible = "qcom,nss-dp";
 			qcom,id = <5>;
-			reg = <0x3a001600 0x200>;
+			reg = <0x3a001800 0x200>;
 			qcom,mactype = <0>;
 			local-mac-address = [000000000000];
 			qcom,link-poll = <1>;
@@ -113,7 +119,7 @@
 			device_type = "network";
 			compatible = "qcom,nss-dp";
 			qcom,id = <4>;
-			reg = <0x3a001400 0x200>;
+			reg = <0x3a001600 0x200>;
 			qcom,mactype = <0>;
 			local-mac-address = [000000000000];
 			qcom,link-poll = <1>;
@@ -125,7 +131,7 @@
 			device_type = "network";
 			compatible = "qcom,nss-dp";
 			qcom,id = <3>;
-			reg = <0x3a001200 0x200>;
+			reg = <0x3a001400 0x200>;
 			qcom,mactype = <0>;
 			local-mac-address = [000000000000];
 			qcom,link-poll = <1>;
@@ -160,42 +166,42 @@
 			pinctrl-names = "default";
 
 			led_wifi: led_wifi {
-				label = "led_wifi";
+				label = "scg5000:blue:wifi";
 				gpios = <&tlmm 22 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_5g_r: led_5g_r {
-				label = "led_5g_r";
+			led_5g_red: led_5g_red {
+				label = "scg5000:red:5g";
 				gpios = <&tlmm 33 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_5g_g: led_5g_g {
-				label = "led_5g_g";
+			led_5g_green: led_5g_green {
+				label = "scg5000:green:5g";
 				gpios = <&tlmm 29 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_5g_b: led_5g_b {
-				label = "led_5g_b";
+			led_5g_blue: led_5g_blue {
+				label = "scg5000:blue:5g";
 				gpios = <&tlmm 34 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_4g_r: led_4g_r {
-				label = "led_4g_r";
+			led_4g_red: led_4g_red {
+				label = "scg5000:red:4g";
 				gpios = <&tlmm 32 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_4g_g: led_4g_g {
-				label = "led_4g_g";
+			led_4g_green: led_4g_green {
+				label = "scg5000:green:4g";
 				gpios = <&tlmm 30 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_4g_b: led_4g_b {
-				label = "led_4g_b";
+			led_4g_blue: led_4g_blue {
+				label = "scg5000:blue:4g";
 				gpios = <&tlmm 31 GPIO_ACTIVE_HIGH>;
 			};
 
-			led_status: led_status {
-				label = "led_status";
+			led_power: power {
+				label = "scg5000:blue:power";
 				gpios = <&tlmm 25 GPIO_ACTIVE_HIGH>;
 			};
 
@@ -425,49 +431,49 @@
 			bias-pull-down;
 		};
 
-		led_5g_r {
+		led_5g_red {
 			pins = "gpio33";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_5g_g {
+		led_5g_green {
 			pins = "gpio29";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_5g_b {
+		led_5g_blue {
 			pins = "gpio34";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_4g_r {
+		led_4g_red {
 			pins = "gpio32";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_4g_g {
+		led_4g_green {
 			pins = "gpio30";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_4g_b {
+		led_4g_blue {
 			pins = "gpio31";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
 		};
 
-		led_status {
+		led_power {
 			pins = "gpio25";
 			function = "gpio";
 			drive-strength = <8>;
