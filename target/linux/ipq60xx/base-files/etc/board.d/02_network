@@ -28,7 +28,11 @@ ipq60xx_setup_interfaces()
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2 eth3" "eth4"
 		;;
 	scg5000,ipq6010)
+<<<<<<< HEAD
 		ucidef_set_interfaces_lan_wan "eth1 eth2" "eth0"
+=======
+		ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
+>>>>>>> 6d80886632dcb4f292203298e520fa29ee568e80
 		;;
 	xiaomi,rm1800)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2" "eth3"
