@@ -13,7 +13,7 @@
 	#address-cells = <0x2>;
 	#size-cells = <0x2>;
 	model = "SCG5000 (IPQ6010)";
-	compatible = "scg5000,ipq6010", "qcom,ipq6018", "qcom,ipq6010";
+	compatible = "alicloud,scg5000", "qcom,ipq6018", "qcom,ipq6010";
 	interrupt-parent = <&intc>;
 	qcom,msm-id = <0x192 0x0>;
 
@@ -147,7 +147,7 @@
 		pinctrl-names = "default";
 
 		led_wifi: led_wifi {
-			label = "scg5000:blue:wifi";
+			label = "scg5000:white:wifi";
 			gpios = <&tlmm 22 GPIO_ACTIVE_HIGH>;
 		};
 
@@ -182,58 +182,69 @@
 		};
 
 		led_power: power {
-			label = "scg5000:blue:power";
+			label = "scg5000:white:power";
 			gpios = <&tlmm 25 GPIO_ACTIVE_HIGH>;
 		};
 
 		m2_hard_poweron: m2_hard_poweron {
 			label = "m2_hard_poweron";
 			gpios = <&tlmm 48 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
 		};
 
 		m2_gnss_disable: m2_gnss_disable {
 			label = "m2_gnss_disable";
 			gpios = <&tlmm 51 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+			
 		};
 
 		m2_fibocom_bootctrl: m2_fibocom_bootctrl {
 			label = "m2_fibocom_bootctrl";
 			gpios = <&tlmm 53 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
 		};
 
 		m2_fibocom_usbboot: m2_fibocom_usbboot {
 			label = "m2_fibocom_usbboot";
 			gpios = <&tlmm 73 GPIO_ACTIVE_HIGH>;
+			default-state = "keep";
 		};
 
 		m2_airmode: m2_airmode {
 			label = "m2_airmode";
 			gpios = <&tlmm 74 GPIO_ACTIVE_LOW>;
+			default-state = "off";
 		};
 
 		m2_reset: m2_reset {
 			label = "m2_reset";
 			gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
+			default-state = "keep";
 		};
 
 		m2_soft_poweroff_5g: m2_soft_poweroff_5g {
 			label = "m2_soft_poweroff_5g";
 			gpios = <&tlmm 79 GPIO_ACTIVE_LOW>;
+			default-state = "off";
 		};
 
 		m2_soft_poweroff_4g: m2_soft_poweroff_4g {
 			label = "m2_soft_poweroff_4g";
 			gpios = <&tlmm 49 GPIO_ACTIVE_LOW>;
+			default-state = "keep";
 		};
 
 		phy_reset: phy_reset {
 			label = "phy_reset";
 			gpios = <&tlmm 75 GPIO_ACTIVE_LOW>;
+			default-state = "keep";
 		};
 
 		tpm_reset: tpm_reset {
 			label = "tpm_reset";
 			gpios = <&tlmm 62 GPIO_ACTIVE_LOW>;
+			default-state = "keep";
 		};
 	};
 

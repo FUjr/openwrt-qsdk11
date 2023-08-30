@@ -11,6 +11,11 @@ board=$(board_name)
 boardname="${board##*,}"
 
 case "$board" in
+alicloud,scg5000)
+	ucidef_set_led_netdev "5g" "wwan" ${boardname}:blue:5g "wwan0"
+	ucidef_set_led_netdev "4g" "wwan" ${boardname}:blue:4g "wwan1"
+	ucidef_set_led_netdev "wlan" "wlan" ${boardname}:white:wifi "wlan0"
+	;;
 cmiot,ax18|\
 zn,m2)
 	ucidef_set_led_netdev "wan" "WAN" "${boardname}:blue:wan" "eth0"
@@ -25,11 +30,6 @@ huasifei,wf-hr6001)
 	ucidef_set_led_netdev "lan4" "LAN4" "${boardname}:blue:lan4" "eth0"
 	ucidef_set_led_netdev "wlan2g" "WLAN2G" "${boardname}:blue:wlan2g" "wlan1"
 	ucidef_set_led_netdev "wlan5g" "WLAN5G" "${boardname}:blue:wlan5g" "wlan0"
-	;;
-scg5000,ipq6018)
-	ucidef_set_led_netdev "5g" "wwan" ${boardname}:blue:5g "wwan0"
-	ucidef_set_led_netdev "4g" "wwan" ${boardname}:blue:4g "wwan1"
-	ucidef_set_led_netdev "wlan" "wlan" ${boardname}:blue:wlan "wlan0"
 	;;
 xiaomi,rm1800)
 	ucidef_set_led_netdev "internet" "Internet" "${boardname}:blue:network" "eth3"
