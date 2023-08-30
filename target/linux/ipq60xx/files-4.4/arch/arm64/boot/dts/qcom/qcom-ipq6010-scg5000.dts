@@ -25,8 +25,10 @@
 / {
 	#address-cells = <0x2>;
 	#size-cells = <0x2>;
-	model = "SCG5000 IPQ6018";
-	compatible = "scg5000,ipq6018", "qcom,ipq6018";
+
+	model = "SCG5000 (IPQ6010)";
+	compatible = "scg5000,ipq6010", "qcom,ipq6010";
+
 	interrupt-parent = <&intc>;
 	qcom,msm-id = <0x192 0x0>;
 
