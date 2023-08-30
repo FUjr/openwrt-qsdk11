@@ -13,8 +13,9 @@ boardname="${board##*,}"
 case "$board" in
 alicloud,scg5000)
 	ucidef_set_led_netdev "5g" "wwan" ${boardname}:blue:5g "wwan0"
-	ucidef_set_led_netdev "4g" "wwan" ${boardname}:blue:4g "wwan1"
+	ucidef_set_led_netdev "4g" "wwan" ${boardname}:blue:4g "usb0"
 	ucidef_set_led_netdev "wlan" "wlan" ${boardname}:white:wifi "wlan0"
+	ucidef_set_led_netdev "lan" "lan" ${boardname}:white:lan "eth0"
 	;;
 cmiot,ax18|\
 zn,m2)
