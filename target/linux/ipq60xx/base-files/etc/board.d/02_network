@@ -12,6 +12,9 @@ ipq60xx_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
+	alicloud,scg5000)
+		ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
+		;;
 	cmiot,ax18|\
 	qihoo,v6|\
 	zn,m2)
@@ -26,9 +29,6 @@ ipq60xx_setup_interfaces()
 	huasifei,wf-hr6001|\
 	linksys,mr7350)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2 eth3" "eth4"
-		;;
-	scg5000,ipq6010)
-		ucidef_set_interfaces_lan_wan "eth0 eth1" "eth2"
 		;;
 	xiaomi,rm1800)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2" "eth3"
