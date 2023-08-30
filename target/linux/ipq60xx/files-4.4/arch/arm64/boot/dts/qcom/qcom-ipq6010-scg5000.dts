@@ -25,8 +25,8 @@
 / {
 	#address-cells = <0x2>;
 	#size-cells = <0x2>;
-	model = "SCG5000 IPQ6010";
-	compatible = "scg5000,ipq6010", "qcom,ipq6010";
+	model = "SCG5000 IPQ6018";
+	compatible = "scg5000,ipq6018", "qcom,ipq6018";
 	interrupt-parent = <&intc>;
 	qcom,msm-id = <0x192 0x0>;
 
@@ -77,8 +77,8 @@
 			switch_mac_mode = <0x00>;
 			switch_mac_mode1 = <0xff>;
 			switch_mac_mode2 = <0xff>;
-			bm_tick_mode = <0x00>;
-			tm_tick_mode = <0x00>;
+
+
 			qcom,port_phyinfo {
 				port@0 {
 					port_id = <1>;
@@ -139,12 +139,7 @@
 			phy-mode = "sgmii";
 		};
 
-		nss-macsec0 {
-			compatible = "qcom,nss-macsec";
-			phy_addr = <0x04>;
-			phy_access_mode = <0x00>;
-			mdiobus = <0x52>;
-		};
+
 
 		gpio_keys {
 			compatible = "gpio-keys";
