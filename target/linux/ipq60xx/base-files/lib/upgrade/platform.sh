@@ -11,7 +11,7 @@ platform_check_image() {
 platform_do_upgrade() {
 	board=$(board_name)
 	case $board in
-	alicloud,scg5000)|\
+	alicloud,scg5000|\
 	cmiot,ax18|\
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
